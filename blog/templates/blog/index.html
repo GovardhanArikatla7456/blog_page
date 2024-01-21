@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}
+    My Blog
+{%endblock%}
+{% block css_files%}
+
+    <link rel = "stylesheet" href ="{% static "blog/post.css" %}" />
+    <link rel = "stylesheet" href ="{% static "blog/index.css" %}" />
+{%endblock%}
+{% block content%}
+<section id = "welcome">
+    <header>
+        <img src = "{% static "blog/images/profile.JPG" %}" alt = "Govardhan- Author of this blog."/>
+        <h2>Govardhan's Blog</h2>
+    </header>
+    <p> Hello, This blog is about my education and experience.</p>
+</section>
+<section id = "latest-posts">
+<h2> Recent profile updates</h2>
+<ul>
+    {% for post in posts%}
+      {% include "blog/includes/post.html" %}
+    {%endfor%}
+</ul>
+</section>
+<section id = "about">
+<h2> My mission right now!</h2>
+<p>
+    I am interested to learn full stack web development and then secure a job as an software engineer as soon as I can.
+</p>
+</section>
+{% endblock%}
